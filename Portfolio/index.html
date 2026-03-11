@@ -107,9 +107,25 @@
             font-size: 0.8rem;
             letter-spacing: 2px;
             transition: color 0.3s;
+            cursor: none;
         }
 
         .nav-links a:hover { color: var(--accent); }
+
+        /* PAGE CONTENT WRAPPER */
+        .page-content {
+            display: none;
+            animation: pageFadeIn 0.6s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        @keyframes pageFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         /* HERO SECTION */
         .hero {
@@ -170,6 +186,7 @@
             box-shadow: var(--brutalist-shadow);
             transition: 0.2s;
             display: inline-block;
+            cursor: none;
         }
 
         .brutal-btn:hover {
@@ -242,6 +259,38 @@
             display: block;
         }
 
+        /* ABOUT PAGE STYLES */
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-text-card {
+            background: var(--surface);
+            border: var(--border);
+            padding: 50px;
+            box-shadow: var(--brutalist-shadow);
+        }
+
+        .about-text-card p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: var(--text);
+            margin-bottom: 25px;
+        }
+
+        .about-highlight {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            display: block;
+            margin-top: 40px;
+        }
+
         /* SKILLS MARQUEE */
         .marquee {
             border-top: var(--border);
@@ -302,7 +351,7 @@
         /* RESPONSIVE */
         @media (max-width: 900px) {
             .card-large, .card-small, .card-full { grid-column: span 12; height: auto; }
-            .contact-layout { grid-template-columns: 1fr; }
+            .about-layout, .contact-layout { grid-template-columns: 1fr; }
             .section-title { font-size: 2.5rem; }
             nav .nav-links { display: none; }
         }
@@ -327,87 +376,138 @@
     <div class="grid-bg"></div>
 
     <nav>
-        <a href="#" class="logo">BLESSY.ANN</a>
+        <a href="javascript:void(0)" onclick="navigateTo('home')" class="logo">BLESSY.ANN</a>
         <ul class="nav-links">
-            <li><a href="#work">Work</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="javascript:void(0)" onclick="navigateTo('home')">Work</a></li>
+            <li><a href="javascript:void(0)" onclick="navigateTo('about')">About</a></li>
+            <li><a href="javascript:void(0)" onclick="navigateTo('contact')">Contact</a></li>
         </ul>
     </nav>
 
-    <section class="hero">
-        <span class="hero-label reveal">COMPUTER SCIENCE ENGINEER</span>
-        <h1 class="reveal">
-            Blessy<br>
-            <span class="outline">Thomas</span>
-        </h1>
-        <div class="hero-footer reveal">
-            <p class="hero-desc">Building bold digital products and software prototypes with a focus on code integrity and unique design.</p>
-            <a href="#work" class="brutal-btn">Scroll for Work</a>
-        </div>
-    </section>
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page-content active">
+        <section class="hero">
+            <span class="hero-label reveal">COMPUTER SCIENCE ENGINEER</span>
+            <h1 class="reveal">
+                Blessy<br>
+                <span class="outline"> Ann Thomas</span>
+            </h1>
+            <div class="hero-footer reveal">
+                <p class="hero-desc">Building bold digital products and software prototypes with a focus on code integrity and unique design.</p>
+                <a href="#work-anchor" class="brutal-btn">Scroll for Work</a>
+            </div>
+        </section>
 
-    <div class="marquee">
-        <div class="marquee-content">
-            <span>Python</span> <span>JavaScript</span> <span>MySQL</span> <span>React</span> 
-            <span>UI Design</span> <span>Java</span> <span>Python</span> <span>JavaScript</span> 
-            <span>MySQL</span> <span>React</span> <span>UI Design</span> <span>Java</span>
+        <div class="marquee">
+            <div class="marquee-content">
+                <span>Python</span> <span>JavaScript</span> <span>MySQL</span> <span>React</span> 
+                <span>UI Design</span> <span>Java</span> <span>Python</span> <span>JavaScript</span> 
+                <span>MySQL</span> <span>React</span> <span>UI Design</span> <span>Java</span>
+            </div>
         </div>
+
+        <section id="work-anchor">
+            <h2 class="section-title reveal">Selected<br>Work</h2>
+            <div class="projects-grid">
+                <div class="project-card card-large reveal">
+                    <div>
+                        <span class="project-tag">Web Development</span>
+                        <h3>Mental Health Dashboard</h3>
+                    </div>
+                    <p>A full-stack application leveraging MySQL for sentiment tracking and habit analytics.</p>
+                </div>
+                
+                <div class="project-card card-small reveal">
+                    <div>
+                        <span class="project-tag">API Integration</span>
+                        <h3>Space Explorer</h3>
+                    </div>
+                    <p>Visualizing NASA data through a custom-built interactive interface.</p>
+                </div>
+
+                <div class="project-card card-full reveal">
+                    <div>
+                        <span class="project-tag">Branding / Web</span>
+                        <h3>Digital Portfolio 2026</h3>
+                    </div>
+                    <p>A brutalist exploration of modern web layouts and typography interaction.</p>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <section id="work">
-        <h2 class="section-title reveal">Selected<br>Work</h2>
-        <div class="projects-grid">
-            <div class="project-card card-large reveal">
-                <div>
-                    <span class="project-tag">Web Development</span>
-                    <h3>Mental Health Dashboard</h3>
+    <!-- ABOUT PAGE -->
+    <div id="about-page" class="page-content">
+        <section>
+            <h2 class="section-title">About<br>Me</h2>
+            <div class="about-layout">
+                <div class="about-text-card">
+                    <p>
+                        I am a Computer Science and Design student passionate about creating technology that blends logic, creativity, and usability. I enjoy working on projects that involve both coding and design, allowing me to build applications that are not only functional but also intuitive for users.
+                    </p>
+                    <p>
+                        My interests include web development, software design, and exploring new technologies that help turn ideas into practical solutions. Through continuous learning and hands-on projects, I aim to grow as a developer who can create impactful and well-designed digital experiences.
+                    </p>
+                    <span class="about-highlight">Logic x Creativity</span>
                 </div>
-                <p>A full-stack application leveraging MySQL for sentiment tracking and habit analytics.</p>
-            </div>
-            
-            <div class="project-card card-small reveal">
-                <div>
-                    <span class="project-tag">API Integration</span>
-                    <h3>Space Explorer</h3>
+                <div class="project-card" style="height: auto;">
+                    <span class="project-tag">Focus Areas</span>
+                    <ul style="list-style: none; margin-top: 20px;">
+                        <li style="margin-bottom: 15px; font-size: 1.2rem;">→ Web Development</li>
+                        <li style="margin-bottom: 15px; font-size: 1.2rem;">→ Software Architecture</li>
+                        <li style="margin-bottom: 15px; font-size: 1.2rem;">→ User Experience Design</li>
+                        <li style="margin-bottom: 15px; font-size: 1.2rem;">→ Innovative Prototyping</li>
+                    </ul>
                 </div>
-                <p>Visualizing NASA data through a custom-built interactive interface.</p>
             </div>
+        </section>
+    </div>
 
-            <div class="project-card card-full reveal">
+    <!-- CONTACT PAGE (Shared or Separate) -->
+    <div id="contact-page" class="page-content">
+        <section id="contact">
+            <div class="contact-layout">
                 <div>
-                    <span class="project-tag">Branding / Web</span>
-                    <h3>Digital Portfolio 2026</h3>
+                    <h2 class="section-title" style="margin-bottom: 20px;">Let's<br>Talk</h2>
+                    <p style="font-size: 1.5rem; color: var(--accent);">blessyann9@gmail.com</p>
                 </div>
-                <p>A brutalist exploration of modern web layouts and typography interaction.</p>
+                <form class="contact-form">
+                    <input type="text" placeholder="NAME*">
+                    <input type="email" placeholder="EMAIL*">
+                    <textarea rows="4" placeholder="MESSAGE*"></textarea>
+                    <button type="submit" class="brutal-btn">Send Signal</button>
+                </form>
             </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="contact-layout">
-            <div>
-                <h2 class="section-title reveal" style="margin-bottom: 20px;">Let's<br>Talk</h2>
-                <p class="reveal" style="font-size: 1.5rem; color: var(--accent);">blessyann9@gmail.com</p>
-            </div>
-            <form class="contact-form reveal">
-                <input type="text" placeholder="NAME*">
-                <input type="email" placeholder="EMAIL*">
-                <textarea rows="4" placeholder="MESSAGE*"></textarea>
-                <button type="submit" class="brutal-btn">Send Signal</button>
-            </form>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <footer>
         <p>BLESSY ANN THOMAS © 2026</p>
         <div>
-            <a href="#" style="color: var(--accent); margin-left: 20px;">GITHUB</a>
-            <a href="#" style="color: var(--accent); margin-left: 20px;">LINKEDIN</a>
+            <a href="#" style="color: var(--accent); margin-left: 20px; cursor: none;">GITHUB</a>
+            <a href="#" style="color: var(--accent); margin-left: 20px; cursor: none;">LINKEDIN</a>
         </div>
     </footer>
 
     <script>
+        // PAGE NAVIGATION LOGIC
+        function navigateTo(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show target page
+            const targetPage = document.getElementById(pageId + '-page');
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo(0, 0);
+                
+                // Re-trigger reveal animations for the new page
+                setTimeout(reveal, 100);
+            }
+        }
+
         // Custom Cursor Logic
         const cursor = document.getElementById('cursor');
         const dot = document.getElementById('cursor-dot');
@@ -418,10 +518,13 @@
         });
 
         // Hover state for cursor
-        document.querySelectorAll('a, button, .project-card').forEach(item => {
-            item.addEventListener('mouseenter', () => cursor.style.transform += ' scale(2)');
-            item.addEventListener('mouseleave', () => cursor.style.transform = cursor.style.transform.replace(' scale(2)', ''));
-        });
+        function updateCursorHandlers() {
+            document.querySelectorAll('a, button, .project-card').forEach(item => {
+                item.addEventListener('mouseenter', () => cursor.style.transform += ' scale(2)');
+                item.addEventListener('mouseleave', () => cursor.style.transform = cursor.style.transform.replace(' scale(2)', ''));
+            });
+        }
+        updateCursorHandlers();
 
         // Reveal Logic
         function reveal() {
@@ -437,6 +540,7 @@
         }
 
         window.addEventListener("scroll", reveal);
+        // Initial call
         reveal();
     </script>
 </body>
