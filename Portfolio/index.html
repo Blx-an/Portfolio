@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nova | Portfolio</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#0f0b1f;
+color:white;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:#140c2b;
+}
+
+nav h1{
+color:#c084fc;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#c084fc;
+}
+
+/* HERO */
+
+.hero{
+height:90vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:linear-gradient(135deg,#1a0b2e,#3b0764);
+}
+
+.hero h2{
+font-size:48px;
+}
+
+.hero span{
+color:#c084fc;
+}
+
+.hero p{
+margin-top:15px;
+color:#d1c4e9;
+}
+
+.hero button{
+margin-top:25px;
+padding:12px 25px;
+border:none;
+background:#9333ea;
+color:white;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.hero button:hover{
+background:#7e22ce;
+}
+
+/* SECTIONS */
+
+section{
+padding:80px 10%;
+}
+
+section h2{
+text-align:center;
+margin-bottom:40px;
+color:#c084fc;
+}
+
+/* ABOUT */
+
+.about{
+text-align:center;
+max-width:700px;
+margin:auto;
+line-height:1.6;
+}
+
+/* PROJECTS */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#1e1238;
+padding:25px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+background:#2a1553;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+}
+
+.contact a{
+color:#c084fc;
+text-decoration:none;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:20px;
+background:#140c2b;
+margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<h1>Nova</h1>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+
+<div class="hero">
+
+<div>
+<h2>Hello, I'm <span>Nova</span></h2>
+<p>CSE Student | Developer | Space Enthusiast</p>
+<button>View My Work</button>
+</div>
+
+</div>
+
+
+<section id="about">
+
+<h2>About Me</h2>
+
+<div class="about">
+<p>
+I am a Computer Science student passionate about software development,
+problem solving, and building creative tech projects. I enjoy exploring
+areas like web development, graphics, and space related technology.
+</p>
+</div>
+
+</section>
+
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="card">
+<h3>Project 1</h3>
+<p>Short description about your project.</p>
+</div>
+
+<div class="card">
+<h3>Project 2</h3>
+<p>Short description about your project.</p>
+</div>
+
+<div class="card">
+<h3>Project 3</h3>
+<p>Short description about your project.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<div class="contact">
+<p>Email: blessyann9@gmail.com</p>
+<p>GitHub: <a href="#">github.com/blz.an</a></p>
+<p>LinkedIn: <a href="#">linkedin.com/in/username</a></p>
+</div>
+
+</section>
+
+
+<footer>
+<p>© 2026 blx.an Portfolio</p>
+</footer>
+
+</body>
+</html>
